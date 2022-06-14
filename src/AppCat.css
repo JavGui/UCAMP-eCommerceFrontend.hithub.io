@@ -1,0 +1,74 @@
+*{
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+}
+.container{
+  background-color: rgb(255, 255, 255);
+  block-size:  border-box;
+}
+
+/* ---------------------------------------------------------------------------------------------------------- */
+
+.container5{
+  /* border: 2px solid red; */
+  box-sizing: content-box;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #F5F5F5;
+  height: auto;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  margin-bottom: 120px;
+}
+.tarjeta{
+  /* border: 2px solid blue; */
+  display: flex;
+  flex-direction: column;   
+  width: 350px;
+  border-radius: 2%;
+  box-shadow: 0.2px 0.2px 1px #999999;
+  background-color: #FFFFFF;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.tarjeta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 16px rgba(0,0,0,0.2);
+}
+.fotoTarjeta{
+  margin-top: 10px;
+  width: 200px;
+  height: 170px;  
+}
+.cajaFoto{
+  align-self: center;
+}
+.textoTarjeta{
+  font-family: ITC Avant Garde Gothic;
+  color: #1B5194;
+  font-weight: bold;
+  text-align: center;
+}
+.textoTarjeta2{
+  font-size: 20px;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+.descripcion{
+  font-family: sans-serif;
+  color: #8c9fad;
+  text-align: left;
+  font-size: 16px;
+  text-align: justify;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
+.colorPrecio{
+  display: flex;
+  flex-direction: row;
+}
+
+/* ---------------------------------------------------------------------------------------------------------- */
