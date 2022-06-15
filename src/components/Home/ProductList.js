@@ -5,7 +5,6 @@ import Foto from '../../imagenes/PoloAzulAcero.jpg'
 import '../../App.css'
 
 export default function ProductList() {
-    const id = ""
     const ctx = useContext(ProductContext)
     const { products, getInit } = ctx
 

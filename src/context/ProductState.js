@@ -11,10 +11,10 @@ const ProductState = (props) => {
     const getInit = async () => {
         const data = { inicio: "1"}
         try {
-            const res = await clienteAxios.get('/inicio-productos', data)
+            const res = await clienteAxios.post('/inicio-productos', data)
             dispatch({
-                type: "OBTENER_ALUMNOS",
-                payload: res.data.users })
+                type: "OBTENER_PRODUCTOS",
+                payload: res.data.products })
         } catch(error)  {
             console.log(error)
         }    
@@ -22,13 +22,12 @@ const ProductState = (props) => {
 
     const getProducts = async (id) => {
         try {
-            const data = {id: id}
+            const data = { id: id } 
             console.log('data: ', data);
-            const res = await clienteAxios.get('/obtener-productos', data)
+            const res = await clienteAxios.post('/obtener-productos', data)
             dispatch({
                 type: 'OBTENER_PRODUCTOS',
-                payload: res.data.products
-            })
+                payload: res.data.products })
         } catch (error) {
             console.log(error)
         }

@@ -23,7 +23,7 @@ const UserState = (props) => {
         try {
             const res = await clienteAxios.get('/obtener-usuarios', data)
             dispatch({
-                type: "OBTENER_ALUMNOS",
+                type: "OBTENER_USUARIOS",
                 payload: res.data.users })
         } catch(error)  {
             console.log(error)
@@ -31,13 +31,15 @@ const UserState = (props) => {
     }
 
     const createUser = async (dataForm) => {
+        console.log('dataForm: ', dataForm);
         const form = { 
-            nombre: dataForm.nombre, 
-            apellido: dataForm.apellido, 
-            email: dataForm.email,
-            password: dataForm.password }    
+            nombre: dataForm.capturaNom, 
+            apellido: dataForm.capturaApe, 
+            email: dataForm.capturaEmail,
+            password: dataForm.capturaPassword }
+        console.log('form: ', form);  
         try {
-            await clienteAxios.post('/agregar-usuario', form)
+            await clienteAxios.post('/crear-usuario', form)
             getUser()
         } catch(error)  {
             console.log(error)

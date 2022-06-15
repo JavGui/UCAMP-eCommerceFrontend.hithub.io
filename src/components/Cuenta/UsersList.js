@@ -7,7 +7,7 @@ export default function UserList(){
     const [mensaje, setMensaje] = useState(false)
     
     const ctx = useContext(UserContext)
-    const { users, createUser } = ctx
+    const { createUser } = ctx
 
     const handleChange = (e) => {
         setDatos({ ...datos, [ e.target.name] : e.target.value})
@@ -22,10 +22,10 @@ export default function UserList(){
       const sendDataToCreateUser = () => {
         console.log('datos: ', datos);
         if(!datos.capturaNom.trim() || !datos.capturaApe.trim() || !datos.capturaEmail.trim() || !datos.capturaEmail.trim() ){
-          console.log("Mensaje: ", mensaje)
           return setMensaje("Debes capturar todos los campos")
         }
-        createUser(users)
+        console.log('datos: ', datos);
+        createUser(datos)
         setMensaje("La cuenta del usuario de creó satisfactoriamente")
       }
 

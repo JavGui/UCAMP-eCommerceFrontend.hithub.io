@@ -13,10 +13,10 @@ export default function Main () {
         <main className="container">
             <Routes>
                 <Route exact path="/" element={<Home/>}/>
-                <Route path="/Catalogo" element={<Catalogo/>}/>
-                <Route path="/Pedido/:id" element={<Pedido/>}/>
-                <Route path="/Login" element={<Login/>}/>
-                <Route path="/Cuenta" element={<Cuenta/>}/>
+                <Route path="/catalogo" element={<Catalogo/>}/>
+                <Route path="/pedido/:id" element={<Pedido/>}/>
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/cuenta" element={<Cuenta/>}/>
                 {/* <Route path="/Pagar" element={<Pagar/>}/> */}
             </Routes>
         </main>
