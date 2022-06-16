@@ -26,6 +26,4 @@ export default class PaypalButton extends React.Component {
 
     return <PaypalExpressBtn env={env} currency={currency} total={total} client={client} onerror={onError} onSuccess={onSuccess} onCancel={onCancel} />
     }
-
-
 }

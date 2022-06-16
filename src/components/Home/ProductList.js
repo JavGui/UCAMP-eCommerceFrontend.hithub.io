@@ -16,9 +16,9 @@ export default function ProductList() {
         <div className="container4"> 
             {products && products.map((elem) => {
                 return ( 
-                    <article key={ elem.id } className="tarjeta">
+                    <article key={ elem._id } className="tarjeta">
                         <div className="cajaFoto">
-                            <Link to="/pedido/62a530031b03a053fab3a4e0"><img className="fotoTarjeta" src={ Foto } alt="Foto"></img></Link>
+                            <Link to={`/pedido/${elem._id}`}><img className="fotoTarjeta" src={ Foto } alt="Foto"></img></Link>
                         </div>
                         <div className="textoTarjeta">
                             <div><p className="textoTarjeta2">{ elem.nombre }</p></div>

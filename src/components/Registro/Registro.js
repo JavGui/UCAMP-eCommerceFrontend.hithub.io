@@ -1,11 +1,11 @@
 import React from 'react'
 import UserList from './UsersList'
 
-export default function Cuenta() {
+export default function Registro() {
   return (
     <>
-      <div className='Cuenta'>
-        <h2>Registro de Usuarios</h2>
+      <div className='Registro'>
+        <h1>Registro de Usuarios</h1>
       </div>
       <UserList />
     </>

@@ -28,30 +28,28 @@ header{
   display: flex;
   align-items: center;
   width: 350px;
-  justify-content: space-between;
+  height: 50px;  
+  justify-content: space-around;
 }
 .encabezado-derecha{
   display: flex;
   align-items: center;
   width: 300px;
-  justify-content: space-between;
+  height: 50px;  
+  justify-content: space-around;
 }
 .logo{
   width: 100px;
 }
-.menu{
-  display: flex;
-  align-items: center;
-  padding: 15px;
-}
-.menu a{
-  padding: 20px;
+.logo:hover{
+  transform: scale(1.1);
 }
 .linea{
   text-decoration: none;
   color: #1B5194;    
   font-weight: bold;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: large;
 }
 .linea:hover{
   color: rgb(172, 169, 169);
@@ -256,8 +254,7 @@ footer{
   flex-wrap: wrap;
   width: 90%;
   margin: auto;
-  margin-top: 50px;
-  margin-bottom: 20px;
+  margin-top: 40px;
 }
 .fotoPedido{
   /* border: 2px solid blue; */
@@ -314,17 +311,18 @@ footer{
   margin-top: 40px;
   width: 450px;
 }
-/* .botonPagar{
+.botonPagar{
   background-color: rgb(59, 130, 246);
   width: 150px;
-  height: 140px;
+  height: 40px;
   text-decoration: none;
   text-align: center;
-  font-size: x-large;
+  font-size: 20px;
   color: white; 
   border-radius: 8%;
-  margin-top: 30px;
-} */
+  padding-top: 3px;
+  padding-bottom: 7px;
+}
 .botonRegresar{
   background-color: gray;
   width: 150px;
@@ -336,10 +334,10 @@ footer{
   border-radius: 8%;
   padding-top: 10px;
 }
-/* .botonPagar:hover{
+.botonPagar:hover{
   background-color: rgba(59, 131, 246, 0.83);
   border: 2px solid black;
-} */
+}
 .botonRegresar:hover{
   background-color: rgba(128, 128, 128, 0.842);
   border: 2px solid black;

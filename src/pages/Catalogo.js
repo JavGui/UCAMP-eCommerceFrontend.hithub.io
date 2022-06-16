@@ -19,10 +19,8 @@ export default function Catalogo() {
     return (
         <div className="container5"> 
             {products && products.map((elem) => {
-                console.log('elem: ', elem);
                 return ( 
                     <article key={ elem._id } className="tarjeta">
-                        <h5>Vengo de catálogo</h5>
                         <div className="cajaFoto">
                             <Link to={`/pedido/${elem._id}`}><img className="fotoTarjeta" src={ Foto } alt="Foto"></img></Link>
                         </div>

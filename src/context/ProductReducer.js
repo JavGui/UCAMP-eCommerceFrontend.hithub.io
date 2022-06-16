@@ -4,7 +4,12 @@ const reducer = (globalState, action) => {
             return {
                 ...globalState,
                 products: action.payload
-            }            
+            }
+        case "GUARDA_SELECCION":
+            return {
+                ...globalState,
+                selection: action.payload
+            }
         default:
             return globalState
     }

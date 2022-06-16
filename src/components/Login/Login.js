@@ -5,7 +5,7 @@ export default function Login() {
   return (
     <>
       <div className='Login'>
-        <h2>Inicio de Sesión</h2>
+        <h1>Inicio de Sesión</h1>
       </div>
       <LoginList />
     </>
