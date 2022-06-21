@@ -21,16 +21,12 @@ const ProductState = (props) => {
     }
 
     const getProducts = async (id) => {
+        const data = { id: id }
         try {
-            const data = { id: id } 
             const res = await clienteAxios.post('/obtener-productos', data)
-            // console.log('id: ', res.data.products[0]._id);
-            dispatch({
-                type: 'OBTENER_PRODUCTOS',
-                payload: res.data.products })
-            dispatch({
-                type: 'GUARDAR_SELECCIÓN',
-                payload: res.data.products[0]._id})
+                dispatch({
+                    type: 'OBTENER_PRODUCTOS',
+                    payload: res.data.products })
         } catch (error) {
             console.log(error)
         }
@@ -40,9 +36,8 @@ const ProductState = (props) => {
         <ProductContext.Provider
             value={{
                 products: globalState.products,
-                selection: globalState.products,
                 getInit,
-                getProducts                
+                getProducts
             }}
         >
             {props.children}

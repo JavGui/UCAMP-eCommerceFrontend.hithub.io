@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ProductContext from '../context/ProductContext'
 import Foto from '../imagenes/PoloAzulAcero.jpg'
@@ -6,13 +6,11 @@ import Foto from '../imagenes/PoloAzulAcero.jpg'
 import '../AppCat.css'
 
 export default function Catalogo() {
-    const [id, setId] = useState("")
     const ctx = useContext(ProductContext)
     const { products, getProducts } = ctx
    
     useEffect(() => {
-        setId("")
-        getProducts(id)
+        getProducts()
     },[])
 
 

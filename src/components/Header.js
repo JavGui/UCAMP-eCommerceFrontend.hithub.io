@@ -1,16 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import UserContext from '../context/UserContext'
 import Logo from '../imagenes/Logo Huud pantone 10267 C.png'
 
 import '../App.css'
 
 export default function Header () {
-    const id = ""
+const userCtx = useContext(UserContext)
+const { authStatus } = userCtx
+
     return(
         <header className="encabezado">
             <div className="encabezado-izquierda">
                 <div>
-                    <a href="/"><img className="logo" src= { Logo } alt="Logotipo"/></a>                  
+                    <Link to="/"><img className="logo" src= { Logo } alt="Logotipo"/></Link>                  
                 </div>
                 <nav>                
                     <Link to='/catalogo' className='linea' >Nuestro Catálogo</Link>
@@ -18,10 +22,13 @@ export default function Header () {
             </div>
             <div className="encabezado-derecha">
                 <nav>           
-                    <Link to='/login' className='linea' >Iniciar Sesión</Link>
+                    { authStatus ? <a href="/" className='linea' >Cerrar Sesión</a> : <Link to='/login' className='linea' >Iniciar Sesión</Link>}
                 </nav>
                 <nav>
                     <Link to='/registro' className='linea' >Crear Cuenta</Link>
+                </nav>
+                <nav>
+                    <Link to='/carrito' className='linea' >Carrito</Link>
                 </nav>
             </div>
       </header> 

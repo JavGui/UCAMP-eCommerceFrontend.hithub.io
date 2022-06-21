@@ -2,9 +2,12 @@ import React from "react";
 import PaypalExpressBtn from "react-paypal-express-checkout";
 
 export default class PaypalButton extends React.Component {
+    
     render() {
         const onSuccess = (payment) => {
             console.log('The payment was success!', payment);
+            alert("Su compra fue exitosa")
+            //navegación rauterDOM
         } 
 
         const onCancel = (data) => {
@@ -24,6 +27,6 @@ export default class PaypalButton extends React.Component {
             production: ''
         }
 
-    return <PaypalExpressBtn env={env} currency={currency} total={total} client={client} onerror={onError} onSuccess={onSuccess} onCancel={onCancel} />
+        return <PaypalExpressBtn env={env} currency={currency} total={total} client={client} onerror={onError} onSuccess={onSuccess} onCancel={onCancel} />
     }
 }

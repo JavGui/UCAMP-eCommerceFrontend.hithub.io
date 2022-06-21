@@ -1,4 +1,4 @@
-import React, { Profiler } from "react";
+// import React, { Profiler } from "react";
 import { Routes, Route } from "react-router-dom"
 
 import Home from "./Home/Home";
@@ -7,6 +7,8 @@ import Login from '../../src/components/Login/Login'
 import Registro from './Registro/Registro'
 import Pedido from '../../src/pages/Pedido'
 import Perfil from '../components/Profile/Profile'
+import Carrito from '../../src/components/Carrito/Carrito'
+
 
 export default function Main () {
     return(
@@ -17,12 +19,14 @@ export default function Main () {
 
                 {/* RUTAS DE AUTENTICACIÓN */}
                 <Route path="/login" element={<Login/>}/>
-                <Route path="/registro" element={<Registro/>}/>
+                <Route path="/logout" element={<Login/>}/>
+                <Route path="/registro" element={<Registro/>}/>                
 
                 {/* RUTAS PÚBLICAS */}
                 <Route index path="/" element={<Home/>}/>
                 <Route path="/catalogo" element={<Catalogo/>}/>
                 <Route path="/pedido/:id" element={<Pedido/>}/>
+                <Route path="/carrito" element={<Carrito/>}/>
             </Routes>
         </>
     )

@@ -32,9 +32,10 @@ header{
   justify-content: space-around;
 }
 .encabezado-derecha{
+  /* border: 2px solid blue; */
   display: flex;
   align-items: center;
-  width: 300px;
+  width: 400px;
   height: 50px;  
   justify-content: space-around;
 }
@@ -45,6 +46,7 @@ header{
   transform: scale(1.1);
 }
 .linea{
+  /* border: 2px solid red; */
   text-decoration: none;
   color: #1B5194;    
   font-weight: bold;

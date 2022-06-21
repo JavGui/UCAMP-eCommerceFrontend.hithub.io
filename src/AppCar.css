@@ -1,0 +1,242 @@
+*{
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container10{
+  border: 2px solid red;
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  background-color: #F5F5F5;
+  height: 500px;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+.carrito{
+  border: 2px solid blue;
+  background-color: rgb(255, 255, 255);
+  width: 60%;
+  height:350px;
+  margin: auto;
+  overflow-y: scroll;
+  margin-top: 10px;
+}
+
+/* ---------------------------------------------------------------------------------------------------------- */
+
+.enc{
+  margin-top:20px;
+  text-align: center;
+}
+
+.preferencias{
+  border: 2px solid gray;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+  margin-top: 20px;
+  width: 60%;
+}
+
+.labelCant{
+  color: #1B5194;
+}
+
+.CapTal{
+  font-size: medium;
+  text-align: center;
+  font-weight: bold;
+  width: 50px;
+  margin-left: 10px;
+}
+.CapNum{
+  font-size: medium;
+  text-align: center;
+  font-weight: bold;
+  width: 50px;
+}
+
+.botonesPed{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: auto;
+  margin-top: 40px;
+  width: 450px;
+}
+
+.meteCarrito{
+  background-color: rgba(0, 128, 0, 0.598);
+  width: 200px;
+  height: 25px;
+  font-family: 'Times New Roman', Times, serif;
+  text-decoration: none;
+  text-align: center;
+  font-size: x-large;
+  color: white; 
+  border-radius: 8%;
+  padding-top: 4px;
+  padding-bottom: 6px;
+
+}
+.meteCarrito:hover{
+  background-color: rgba(0, 128, 0, 0.502);
+  border: 2px solid green;
+  transform: scale(1.08);
+}
+
+.regresaCat{
+  background-color: gray;
+  width: 200px;
+  height: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  text-decoration: none;
+  text-align: center;
+  font-size: x-large;
+  color: white; 
+  border-radius: 8%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.regresaCat:hover{
+  background-color: rgba(128, 128, 128, 0.608);
+  border: 2px solid rgb(128, 128, 128);
+  transform: scale(1.03);
+}
+
+.textoCarrito{
+  border: 2px solid gray;
+  margin: auto;
+  width: 40%;
+  height: 10px;
+  margin-top: 30px;
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 174px;
+}
+
+thead {
+  top: 0;
+  position: sticky;  
+}
+
+.table-header {
+  background-color: #0c6cfc;
+  color: white;
+}
+
+.col {
+  border: 2px solid black;
+  text-align: center;
+  padding: 10px;
+}
+
+.det{
+  border: 1px solid black;
+  text-align: center;
+  font-weight: bold;
+  color: blue;
+}
+.detP, .detI{
+  border: 1px solid black;
+  text-align: right;
+  font-weight: bold;
+  color: blue;
+}
+
+.col1{
+  width: 30px;
+}
+.col2{
+  width: 400px;
+}
+.col3, .col4{
+  width: 60px;
+}
+.col4{
+  width: 100px;
+}
+.col5{
+  width: 80px;
+}
+.col7{
+  width: 80px;
+}
+.col8, .col9{
+  width: 60px;
+}
+
+tr:hover{
+  background-color: rgba(128, 128, 128, 0.463); 
+}
+
+.borra{
+  background-color: red;
+  font-size: small;
+  width: 40px;
+  height: 20px;
+  text-align: center;
+  color: white;
+}
+
+.textoMensaje{
+  border: 2px solid gray;
+  margin: auto;
+  width: 60%;
+  height: 10px;
+  margin-top: 30px;
+  color: red;
+  font-size: larger;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+tfoot {
+  display: table-footer-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+tfoot tr td{
+  border: 1px solid black;
+  text-align: right;
+  font-weight: bold;
+  color: blue;
+}
+
+.pagar{
+  /* border: 2px solid blue; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 60%;
+  height: auto;
+  margin: auto;
+}
+
+.total{
+  font-size: x-large;
+  font-weight: bold;
+  color: #1B5194;
+}
+.botonIniSesion{
+  /* border: 2px solid red; */
+  background-color: rgb(59, 130, 246);
+  text-decoration: none;
+  text-align: center;
+  font-size: 20px;
+  color: white; 
+  border-radius: 8%;
+  padding: 10px 15px;
+}
