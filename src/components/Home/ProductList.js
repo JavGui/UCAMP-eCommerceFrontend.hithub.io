@@ -18,7 +18,7 @@ export default function ProductList() {
                 return ( 
                     <article key={ elem._id } className="tarjeta">
                         <div className="cajaFoto">
-                            <Link to={`/pedido/${elem._id}`}><img className="fotoTarjeta" src={ Foto } alt="Foto"></img></Link>
+                            <Link to={`/pedido/${elem._id}`}><img className="fotoTarjeta" src={ elem.urlFoto } alt="Foto"></img></Link>
                         </div>
                         <div className="textoTarjeta">
                             <div><p className="textoTarjeta2">{ elem.nombre }</p></div>

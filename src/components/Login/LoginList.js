@@ -27,6 +27,8 @@ export default function LoginList(){
       return setMensaje("Debes capturar los dos campos")
     }
     loginUser(datos)
+    console.log("estatus: ", status);
+    status === 400 ? setMensaje("La cuenta de correo no existe o el password es incorrecto") : setMensaje("")
   } 
 
   console.log("users verifica: ", users)
@@ -35,7 +37,6 @@ export default function LoginList(){
     if (authStatus) {
       verifyingToken(users)     
     }
-    status === 400 ? setMensaje("La cuenta de correo no existe o el password es incorrecto") : setMensaje("")
     if (authStatus){
       navigate('/profile')
     }

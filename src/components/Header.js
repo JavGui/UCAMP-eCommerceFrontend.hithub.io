@@ -30,6 +30,9 @@ const { authStatus } = userCtx
                 <nav>
                     <Link to='/carrito' className='linea' >Carrito</Link>
                 </nav>
+                <nav>
+                { authStatus ? <Link to='/profile' className='linea' >Perfil Usuario</Link> : null}
+                </nav>
             </div>
       </header> 
     )

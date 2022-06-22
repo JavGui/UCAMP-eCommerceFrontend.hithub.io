@@ -18,21 +18,28 @@ export default function Carrito() {
   let importeTotal = 0
   console.log('acumulados: ', unidadesTotal, importeTotal);
   
-  const DeleteCompra = async (el, ind) => {
-    console.log('datos: ', el.id, ind);    
-    console.log('carrito: ', carrito);
+  // const DeleteCompra = async (el, ind) => {    
+  //   const opcion = window.confirm(`¿Deseas borrar al producto seleccionado?`)
+  //   if(opcion){
+  //     const nuevoCarrito = await carrito.filter((item) => item.id !== el.id)
+  //     actualizaCarrito(nuevoCarrito)
+  //     const id = ind + 1
+  //     document.getElementById(id).remove()
+  //     unidadesTotal = 0
+  //     importeTotal = 0
+  //   }
+  // }
+
+  const DeleteCompra = async (el, ind) => {   
     const opcion = window.confirm(`¿Deseas borrar al producto seleccionado?`)
     if(opcion){
+      console.log(el.id);
       const nuevoCarrito = await carrito.filter((item) => item.id !== el.id)
-      console.log('nuevo: ', nuevoCarrito);
       actualizaCarrito(nuevoCarrito)
-      console.log('actulizado: ', carrito);
-      const id = ind + 1
-      document.getElementById(id).remove()
       unidadesTotal = 0
       importeTotal = 0
     }
-  }
+  } 
 
   console.log('aut: ', authStatus);
 

@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
 }
-.container{
+.Registro{
   background-color: rgb(255, 255, 255);
   block-size:  border-box;
 }
@@ -15,6 +15,7 @@ h1{
   text-align: center;
 }
 .captura{
+  /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,7 +23,7 @@ h1{
 }
 
 input, label{
-  font-size: larger;
+  font-size: x-larger;
   font-weight: bold;
   text-align: center;
   margin-top: 10px;
@@ -38,7 +39,7 @@ input, label{
   align-items: flex-end;
   margin: auto;
   margin-top: 40px;
-  width: 30%;
+  width: 29%;
 }
 
 .entrada1, .entrada2, .entrada3{

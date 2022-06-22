@@ -17,18 +17,20 @@ const UserState = (props) => {
         console.log("form login: ", form)
         try {
             const res = await clienteAxios.post('/iniciar-sesion', form)
+            console.log('res:', res.status);
             if (res.status === 200){
                 dispatch({
                     type: "LOGIN_EXITOSO",
-                    payload: res.data.users})
+                    payload: res.data})
                 console.log("captura email: ", dataForm.capturaEmail)
                 confirmUser(dataForm.capturaEmail) 
-            } 
-              
-        } catch(error)  {
-            dispatch({
-                type: "LOGIN_NOEXITOSO",
-                payload: error.request.status})
+            } else {
+                dispatch({
+                    type: "LOGIN_NOEXITOSO",
+                    payload: res.data}) 
+            }             
+        } catch(error)  {            
+            console.log("entré al catch");
         }        
     }
 
