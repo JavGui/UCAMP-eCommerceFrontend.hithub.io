@@ -1,12 +1,10 @@
-import React, { useReducer, useState } from 'react'
+import React, { useReducer } from 'react'
 import UserContext from './UserContext'
 import UserReducer from './UserReducer'
 import clienteAxios from '../config/axios'
 
 const UserState = (props) => {
-    const initialState = { user: {esername: null, email: null}, status: null,  authStatus: false, loading: false}
-
-    const [id, setId] = useState("")
+    const initialState = { user: {esername: null, email: null}, mensaje: null,  authStatus: false}
 
     const [globalState, dispatch] = useReducer(UserReducer, initialState)
     
@@ -14,23 +12,25 @@ const UserState = (props) => {
 // --------------- LOGIN DEL USUARIO ---------------
     const loginUser = async ( dataForm ) => {
         const form = { email: dataForm.capturaEmail, password: dataForm.capturaPassword }
-        console.log("form login: ", form)
         try {
             const res = await clienteAxios.post('/iniciar-sesion', form)
-            console.log('res:', res.status);
+            console.log('res: ', res);
             if (res.status === 200){
                 dispatch({
                     type: "LOGIN_EXITOSO",
                     payload: res.data})
-                console.log("captura email: ", dataForm.capturaEmail)
                 confirmUser(dataForm.capturaEmail) 
             } else {
-                dispatch({
-                    type: "LOGIN_NOEXITOSO",
-                    payload: res.data}) 
-            }             
-        } catch(error)  {            
-            console.log("entré al catch");
+                console.log('entré al else');           
+            dispatch({
+                type: "LOGIN_NOEXITOSO",
+                payload: "el usuario no existe"}) 
+            }
+        } catch(error)  { 
+            console.log('entré al catch');           
+            dispatch({
+                type: "LOGIN_NOEXITOSO",
+                payload: "El usuario no existe o el password es incorrecto"}) 
         }        
     }
 
@@ -44,7 +44,6 @@ const UserState = (props) => {
 // --------------- VERIFICACIÓN DEL TOKEN ---------------
     const verifyingToken = async () => {
         const token = localStorage.getItem('token')
-        console.log('token: ', token);
         if (token) {
             clienteAxios.defaults.headers.common['x-auth-token'] = token
         } else {
@@ -52,7 +51,6 @@ const UserState = (props) => {
         }
         try{
             const respuesta = await clienteAxios.get('/verificar-usuario')
-            console.log("respuesta: ", respuesta)  
             dispatch({
                 type: 'OBTENER_USUARIO',
                 payload: respuesta.data.usaurio,
@@ -65,7 +63,6 @@ const UserState = (props) => {
 // --------------- LEER USARIOS DE LA BASE DE DATOS ---------------
     const getUser = async ( user ) => {
         const data = { id: user.id }
-        console.log('Data getusuario: ', data);
         try {
             const res = await clienteAxios.get('/obtener-usuarios', data)
             dispatch({
@@ -79,7 +76,6 @@ const UserState = (props) => {
 // --------------- LEER USARIO LOGUEADO DE LA BASE DE DATOS ---------------
     const confirmUser = async ( email ) => {
         const data = { email: email }
-        console.log('Data verifica: ', data);
         try {
             const res = await clienteAxios.get('/confirmar-usuario', data)
             dispatch({
@@ -100,14 +96,12 @@ const UserState = (props) => {
             const res = await clienteAxios.post('/crear-usuario', form)
             if (res.status === 200){
                 dispatch({
-                    type: "REGISTRO-EXITOSO",
+                    type: "REGISTRO_EXITOSO",
                     payload: res.data})
-                setId("")
-                getUser(id)
-            }            
+            } 
         } catch(error)  {
             dispatch({
-                type: "REGISTRO-NOEXITOSO",
+                type: "REGISTRO_NOEXITOSO",
                 payload: error.request.status})
         }
     }
@@ -116,7 +110,7 @@ const UserState = (props) => {
         <UserContext.Provider
             value={{
                 users: globalState.users,
-                status: globalState.status,
+                mensaje: globalState.mensaje,
                 authStatus: globalState.authStatus,
                 loading: globalState.loading,
                 getUser,

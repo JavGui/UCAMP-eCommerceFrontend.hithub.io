@@ -8,21 +8,21 @@ const reducer = (globalState, action) => {
 
         case "LOGIN_EXITOSO":
             localStorage.setItem('token', action.payload.token)
-            return { ...globalState, authStatus: true }
+            return { ...globalState, authStatus: true, mensaje: null }
         
         case "LOGIN_NOEXITOSO":
-            return { ...globalState, authStatus: false, estatus: 400 }
+            return { ...globalState, authStatus: false, mensaje: action.payload }
         
         case "CERRA_SESION":
             localStorage.removeItem('token')
             return { ...globalState, authStatus: false }
 
-        case "REGISTRO-EXITOSO":
+        case "REGISTRO_EXITOSO":
             localStorage.setItem('token', action.payload.token)
-            return { ...globalState, status: 200 }
+            return { ...globalState, resMsg: 200 }
 
-        case "REGISTRO-NOEXITOSO":
-            return { ...globalState, status: 400 }                             
+        case "REGISTRO_NOEXITOSO":
+            return { ...globalState, resMsg: 400 }                             
         
         default:
             return globalState

@@ -9,7 +9,7 @@ const CarState = (props) => {
     
     const guardaCarrito = (dato) => {        
         try {
-            const res = { id: dato.id, nombre: dato.nombre, cantidad: dato.cantidad, talla: dato.talla, color: dato.color, precio: dato.precio }
+            const res = { id: dato.id, nombre: dato.nombre, cantidad: dato.cantidad, talla: dato.talla, color: dato.color, precio: dato.precio, importe: dato.importe }
             dispatch({
                 type: "GUARDA_CARRITO",
                 payload: res})
@@ -19,7 +19,6 @@ const CarState = (props) => {
     }
 
     const actualizaCarrito = async (dato) => { 
-        console.log('dato: ', dato)     
         try {
             const res = dato 
             await dispatch({

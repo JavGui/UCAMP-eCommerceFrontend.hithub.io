@@ -6,39 +6,37 @@ import '../../AppLog.css'
 
 export default function LoginList(){
   const[datos, setDatos] = useState({ capturaEmail: "", capturaPassword: "" })
-  const [mensaje, setMensaje] = useState("")
+  const [textoMensaje, setTextoMensaje] = useState("")
   const navigate = useNavigate()
 
   const ctx = useContext(UserContext)
-  const { users, loginUser, verifyingToken,  authStatus, status } = ctx
+  const { users, loginUser, verifyingToken, authStatus, mensaje } = ctx
 
   const handleChange = (e) => {
     setDatos({ ...datos, [ e.target.name] : e.target.value})
-    setMensaje(" ")
+    setTextoMensaje(" ")
   }
   
   function limpiaCampos(){
     setDatos({ capturaEmail: "", capturaPassword: "" })
-    setMensaje(" ")
+    setTextoMensaje(" ")
   }
 
   const sendDataToLoginUser = () => {
     if(!datos.capturaEmail.trim() || !datos.capturaPassword.trim() ){
-      return setMensaje("Debes capturar los dos campos")
+      return setTextoMensaje("Debes capturar los dos campos")
     }
     loginUser(datos)
-    console.log("estatus: ", status);
-    status === 400 ? setMensaje("La cuenta de correo no existe o el password es incorrecto") : setMensaje("")
+    setTextoMensaje(mensaje)
   } 
-
-  console.log("users verifica: ", users)
 
   useEffect(() =>{
     if (authStatus) {
       verifyingToken(users)     
     }
     if (authStatus){
-      navigate('/profile')
+      alert("HÜÜD te da la bienvenida, disfruta tu experiencia de compra")
+      navigate('/')
     }
   },[authStatus])
 
@@ -68,10 +66,8 @@ export default function LoginList(){
               { authStatus ? <Link to={`/pedido/${ authStatus }`}  className="botonRegresaPago">Regresa a Pagar</Link> : <Link to='/' className="botonRegresaPago">Regresa a Inicio</Link>}
             </div>
           </div>
-        </div>          
-        <div className="mensaje">
-            <p className="texto2">{mensaje}</p>
         </div>
+        { mensaje ? <div className="mensaje"><p className="texto2">{mensaje}</p></div> : <div className="mensaje"><p className="texto2">{ textoMensaje } </p></div>}        
       </div>  
   )
 }

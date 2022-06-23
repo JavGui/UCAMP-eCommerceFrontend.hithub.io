@@ -7,7 +7,7 @@ export default function UserList(){
     const [mensaje, setMensaje] = useState(false)
     
     const ctx = useContext(UserContext)
-    const { createUser, status } = ctx
+    const { createUser, resMsg } = ctx
 
     const handleChange = (e) => {
       e.preventDefault()
@@ -28,8 +28,8 @@ export default function UserList(){
       }
 
       useEffect(() =>{
-        status === 200 ? setMensaje("El registro del usuario fue satisfactorio") : setMensaje("La cuenta de correo ya existe")
-      },[status])
+        resMsg === 200 ? setMensaje("El registro del usuario fue satisfactorio") : setMensaje("La cuenta de correo ya existe")
+      },[resMsg])
 
     return(
         <div className="Registro">

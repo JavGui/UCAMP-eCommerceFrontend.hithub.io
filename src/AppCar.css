@@ -181,7 +181,7 @@ tr:hover{
 }
 
 .borra{
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.458);
   font-size: small;
   width: 40px;
   height: 20px;
