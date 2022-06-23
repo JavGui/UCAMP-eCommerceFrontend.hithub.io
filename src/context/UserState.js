@@ -18,7 +18,6 @@ const UserState = (props) => {
                 dispatch({
                     type: "LOGIN_EXITOSO",
                     payload: res.data})
-                confirmUser(dataForm.capturaEmail) 
             } else {
             dispatch({
                 type: "LOGIN_NOEXITOSO",
@@ -28,7 +27,7 @@ const UserState = (props) => {
             dispatch({
                 type: "LOGIN_NOEXITOSO",
                 payload: "El usuario no existe o el password es incorrecto"}) 
-        }        
+        } 
     }
     
 // --------------- LOGOUT DEL USUARIO ---------------
@@ -53,7 +52,7 @@ const UserState = (props) => {
                 payload: respuesta.data.usaurio,
             })
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     }    
     
@@ -66,22 +65,9 @@ const UserState = (props) => {
                 type: "OBTENER_USUARIOS",
                 payload: res.data.users })
         } catch(error)  {
-            console.log(error)
+            // console.log(error)
         }    
     }
-
-// --------------- LEER USARIO LOGUEADO DE LA BASE DE DATOS ---------------
-    const confirmUser = async ( email ) => {
-        const data = { email: email }
-        try {
-            const res = await clienteAxios.get('/confirmar-usuario', data)
-            dispatch({
-                type: "CONFIRMAR_USUARIO",
-                payload: res.data.users })
-        } catch(error)  {
-            console.log(error)
-        }    
-}
 
     // --------------- CREAR REGISTRO DE USARIO EN LA BASE DE DATOS ---------------
     const createUser = async (dataForm) => {
@@ -114,7 +100,6 @@ const UserState = (props) => {
                 authStatus: globalState.authStatus,
                 mensaje: globalState.mensaje,                
                 getUser,
-                confirmUser,
                 createUser,
                 loginUser,
                 verifyingToken,

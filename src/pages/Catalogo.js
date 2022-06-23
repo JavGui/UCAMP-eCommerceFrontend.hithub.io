@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ProductContext from '../context/ProductContext'
-import Foto from '../imagenes/PoloAzulAcero.jpg'
 
 import '../AppCat.css'
 

@@ -9,13 +9,7 @@ import '../App.css'
 export default function Header () {
     const userCtx = useContext(UserContext)
     const { authStatus } = userCtx
-    const CarCtx = useContext(UserContext)
-    const { carrito } = CarCtx
 
-    if (authStatus ) {
-        console.log('carrito: ', carrito)
-    } 
-        
 
     return(
         <header className="encabezado">
@@ -29,7 +23,7 @@ export default function Header () {
             </div>
             <div className="encabezado-derecha">
                 <nav>           
-                    { authStatus ? <a href="/" className='linea' >Cerrar Sesión</a> : <Link to='/login' className='linea' >Iniciar Sesión</Link>}
+                    { authStatus ? <a href="/" className='linea' >Cerrar Sesión</a> : <Link to={`/login/${"inicio"}`} className='linea' >Iniciar Sesión</Link>}
                 </nav>
                 <nav>
                 { authStatus ? <Link to='/profile' className='linea' >Perfil Usuario</Link> : <Link to='/registro' className='linea' >Crear Cuenta</Link>}

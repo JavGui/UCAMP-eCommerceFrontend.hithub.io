@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import UserContext from '../../context/UserContext'
 import '../../AppLog.css'
 
-
 export default function LoginList(){
+  const ruta = useParams()
   const[datos, setDatos] = useState({ capturaEmail: "", capturaPassword: "" })
   const [textoMensaje, setTextoMensaje] = useState("")
   const [textoMensajeAnt, setTextoMensajeAnt] = useState("")
-  const navigate = useNavigate()
 
   const ctx = useContext(UserContext)
   const { users, loginUser, verifyingToken, authStatus, mensaje } = ctx
@@ -43,8 +42,7 @@ export default function LoginList(){
       verifyingToken(users)     
     }
     if (authStatus){
-      alert("HÜÜD te da la bienvenida, disfruta tu experiencia de compra")
-      navigate('/')
+      setTextoMensaje(`Hola  ${users[0].nombre}, disfruta tu experiencia de compra`)
     }
   },[authStatus])
 
@@ -71,7 +69,7 @@ export default function LoginList(){
               <button className="limpiar" type="button" onClick={ ()=>limpiaCampos() } >LImpia</button>
             </div>
             <div>
-              { authStatus ? <Link to={`/pedido/${ authStatus }`}  className="botonRegresaPago">Regresa a Pagar</Link> : <Link to='/' className="botonRegresaPago">Regresa a Inicio</Link>}
+              { authStatus && ruta.ruta === "carrito" ? <Link to='/carrito'  className="botonRegresaPago">Regresa al carrito</Link> : <Link to='/' className="botonRegresaPago">Regresa a Inicio</Link>}
             </div>
           </div>
         </div>

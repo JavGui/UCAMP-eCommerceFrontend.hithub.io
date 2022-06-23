@@ -35,9 +35,7 @@ export default function Pedido(){
         }
         const precioEditado = moneda(products[0].precio)
         const importeEditado = moneda(captura.cantidad * products[0].precio)
-        console.log('carrito: ', carrito);
         const posicion = carrito.length
-        console.log('posicion: ', posicion);
         const dato = {id: products[0]._id, pos: posicion, nombre: products[0].nombre, talla: captura.talla, color: products[0].color, cantidad: captura.cantidad, precio: precioEditado, importe: importeEditado}
         guardaCarrito(dato)
         getProducts(id)

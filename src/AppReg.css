@@ -26,6 +26,7 @@ input, label{
   font-size: x-larger;
   font-weight: bold;
   text-align: center;
+  color: #1B5194;
   margin-top: 10px;
   margin-left: 10px;
   margin-bottom: 10px;
@@ -63,7 +64,7 @@ input, label{
 }
 
 .agrega{
-  background-color: green;
+  background-color: rgba(0, 128, 0, 0.729);
   margin-left: 20px;
   width: 90px;
   color: white;

@@ -8,25 +8,22 @@ export default function Profile() {
   const userCtx = useContext(UserContext)
   const { users } = userCtx
 
-  console.log('users: ', users)
-
-
   return(
     <div>
-      <h1>Perfil del Usuario</h1>      
+      <h1 className='titulo'>Perfil del Usuario</h1>      
       <div className="Perfil">
         <div className="informacion">
           <div className="usuario">
               <label>Usuario</label>
-              <p className="nombre">jguinea</p>
+              <p className="nombre">{users[0].nombre}</p>
           </div>
           <div className="email">
               <label>Email</label>
-              <p className="correo">javier@dom.com</p>
+              <p className="correo">{users[0].email}</p>
           </div>
           <div className="password">
-              <label>Password</label>
-              <p className="clave">**********</p>
+              <label>Última compra</label>
+              <p className="clave">26/marzo/2022</p>
           </div>
         </div>
         <div className="botones">

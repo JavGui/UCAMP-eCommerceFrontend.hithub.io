@@ -8,7 +8,7 @@ const reducer = (globalState, action) => {
 
         case "LOGIN_EXITOSO":
             localStorage.setItem('token', action.payload.token)
-            return { ...globalState, authStatus: true, mensaje: "Usuario firmado" }
+            return { ...globalState, users: action.payload.foundUser, authStatus: true, mensaje: "Usuario firmado" }
         
         case "LOGIN_NOEXITOSO":
             return { ...globalState, authStatus: false, mensaje: action.payload }

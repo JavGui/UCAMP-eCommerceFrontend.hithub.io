@@ -42,16 +42,17 @@ input, label{
 }
 
 .entrada1, .entrada2{
-  /* border: 2px solid red; */
   display: flex;
   flex-direction: row;
   text-align: center;
+  color: #1B5194;
 }
 
 .input1, .input2{
   width: 350px;
   margin-top: 10px;
   margin-bottom: 10px;
+  color: #1B5194;
 }
 
 .botones{

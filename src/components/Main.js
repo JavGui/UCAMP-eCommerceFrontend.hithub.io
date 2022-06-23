@@ -18,7 +18,7 @@ export default function Main () {
                 <Route path="/profile" element={<Perfil/>}/>
 
                 {/* RUTAS DE AUTENTICACIÓN */}
-                <Route path="/login" element={<Login/>}/>
+                <Route path="/login/:ruta" element={<Login/>}/>
                 <Route path="/logout" element={<Login/>}/>
                 <Route path="/registro" element={<Registro/>}/>                
 

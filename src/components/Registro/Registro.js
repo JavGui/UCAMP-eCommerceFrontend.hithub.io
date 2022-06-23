@@ -5,7 +5,7 @@ export default function Registro() {
   return (
     <>
       <div className='Registro'>
-        <h1>Registro de Usuarios</h1>
+        <h1 className='titulo'>Registro de Usuarios</h1>
       </div>
       <UserList />
     </>

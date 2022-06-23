@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import PaypalButton from '../../components/Paypal/PaypalButton'
 import UserContext from '../../context/UserContext'
@@ -10,21 +10,22 @@ function moneda(pesos){
 }
 
 export default function Carrito() {
+  const [ruta, setRuta] = useState("carrito")
   const UserCtx = useContext(UserContext)
   const { authStatus } = UserCtx
   const CarCtx = useContext(CarContext)
   const { carrito, actualizaCarrito } = CarCtx
 
+
+
   let unidadesTotal = 0
   let importeTotal = 0
   
+  
   const DeleteCompra = async (el) => {
-    console.log('el.pos: ', el.pos);
     const opcion = window.confirm(`¿Deseas borrar al producto seleccionado?`)
     if(opcion){
-      console.log('carrito; ', carrito);
       const nuevoCarrito = await carrito.filter((item) => item.pos !== el.pos)
-      console.log('nuevo carrito:', nuevoCarrito);
       actualizaCarrito(nuevoCarrito)
       unidadesTotal = 0
       importeTotal = 0
@@ -34,7 +35,7 @@ export default function Carrito() {
 
   return (
     <div className="container10">
-      <h2 className='enc'>Resumen de su pedido</h2>   
+      <h2 className='enc'>Resumen de tu pedido</h2>   
       <div className='carrito'>    
         <table className="table">
           <thead className="table-header">
@@ -79,7 +80,8 @@ export default function Carrito() {
             {importeTotal === 0 ? <p className='total'>No se han agregado artículos al carrito</p> : <p className='total'>Total del pedido: &nbsp;&nbsp; Artículos: &nbsp;{ unidadesTotal } &nbsp;&nbsp;&nbsp; Importe:&nbsp; { moneda(importeTotal) }</p>}
           </div>    
         <div className='paypal'>
-          { importeTotal > 0 && authStatus ? <PaypalButton total={importeTotal} /> : <Link to='/login' className="botonIniSesion">Para pagar inicia sesión</Link>}
+          {/* { importeTotal > 0 && authStatus ? <PaypalButton total={importeTotal} /> : <Link to='/login' className="botonIniSesion">Para pagar inicia sesión</Link>} */}
+          { importeTotal > 0 && authStatus ? <PaypalButton total={importeTotal} /> : importeTotal > 0 && !authStatus ? <Link to={`/login/${ruta}`} className="botonIniSesion">Para pagar inicia sesión</Link> : null }
         </div>
       </div>
     </div>

@@ -31,6 +31,7 @@
 .enc{
   margin-top:20px;
   text-align: center;
+  color: #1B5194;
 }
 
 .preferencias{
@@ -212,6 +213,8 @@ tfoot tr td{
   width: 74%;
   height: auto;
   text-align: center;
+  font-weight: bold;
+  color: #1B5194;
 }
 .total{
   font-size: 23px;
