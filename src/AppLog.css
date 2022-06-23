@@ -62,7 +62,7 @@ input, label{
 }
 
 .inicia{
-  background-color: green;
+  background-color: rgba(0, 128, 0, 0.751);
   margin-left: 20px;
   width: 90px;
   color: white;
@@ -73,7 +73,7 @@ input, label{
 }
 .inicia:hover{
   background-color: rgba(0, 128, 0, 0.502);
-  border: 2px solid green;
+  border: 2px solid rgba(0, 128, 0, 0.697);
   transform: scale(1.05);
 }
 
@@ -86,8 +86,7 @@ input, label{
   border-radius: 8%;
   padding: 5px 20px;
   margin-left: 25px;
-} 
-
+}
 .limpiar:hover{
   background-color: rgba(128, 128, 128, 0.496);
   border: 2px solid gray;
@@ -104,6 +103,12 @@ input, label{
   border-radius: 8%;
   padding: 6px 10px;
   margin-left: 25px;
+}
+
+.botonRegresaPago:hover{
+  background-color: rgba(59, 131, 246, 0.426);
+  border: 2px solid blue;
+  transform: scale(1.05);  
 }
 
 .texto2{

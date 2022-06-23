@@ -4,32 +4,38 @@ import '../../AppReg.css'
 
 export default function UserList(){
     const[datos, setDatos] = useState({ capturaNom: "", capturaApe: "", capturaEmail: "", capturaPassword: "" })
-    const [mensaje, setMensaje] = useState(false)
+    const [textoMensaje, setTextoMensaje] = useState("")
+    const [textoMensajeAnt, setTextoMensajeAnt] = useState("")
     
     const ctx = useContext(UserContext)
-    const { createUser, resMsg } = ctx
+    const { createUser, mensaje } = ctx
 
     const handleChange = (e) => {
       e.preventDefault()
       setDatos({ ...datos, [ e.target.name] : e.target.value})
-      setMensaje(" ")
+      setTextoMensaje(" ")
       }
     
       function limpiaCampos(){
         setDatos({ capturaNom: "", capturaEmail: "", capturaPassword: "" })
-        setMensaje(" ")
+        setTextoMensaje(" ")
       }
 
-      const sendDataToCreateUser = () => {
+      const sendDataToCreateUser = async () => {
         if(!datos.capturaNom.trim() || !datos.capturaEmail.trim() || !datos.capturaEmail.trim() ){
-          return setMensaje("Debes capturar todos los campos")
+          return setTextoMensaje("Debes capturar todos los campos")
         }
-        createUser(datos)
+        await createUser(datos)
+        if (mensaje === textoMensajeAnt){
+          setTextoMensaje(mensaje)
+        }
       }
 
-      useEffect(() =>{
-        resMsg === 200 ? setMensaje("El registro del usuario fue satisfactorio") : setMensaje("La cuenta de correo ya existe")
-      },[resMsg])
+      useEffect (() => {
+        setTextoMensaje(mensaje)
+        setTextoMensajeAnt(mensaje)
+      }, [mensaje])
+
 
     return(
         <div className="Registro">
@@ -59,7 +65,7 @@ export default function UserList(){
             </div>
           </div>          
           <div className="mensaje">
-             <p className="texto">{mensaje}</p>
+             <p className="texto">{textoMensaje}</p>
           </div>
         </div>  
     )

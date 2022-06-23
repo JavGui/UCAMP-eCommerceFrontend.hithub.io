@@ -4,7 +4,7 @@ import UserReducer from './UserReducer'
 import clienteAxios from '../config/axios'
 
 const UserState = (props) => {
-    const initialState = { user: {esername: null, email: null}, mensaje: null,  authStatus: false}
+    const initialState = { user: {esername: null, email: null}, authStatus: false, status: null }
 
     const [globalState, dispatch] = useReducer(UserReducer, initialState)
     
@@ -14,26 +14,23 @@ const UserState = (props) => {
         const form = { email: dataForm.capturaEmail, password: dataForm.capturaPassword }
         try {
             const res = await clienteAxios.post('/iniciar-sesion', form)
-            console.log('res: ', res);
             if (res.status === 200){
                 dispatch({
                     type: "LOGIN_EXITOSO",
                     payload: res.data})
                 confirmUser(dataForm.capturaEmail) 
             } else {
-                console.log('entré al else');           
             dispatch({
                 type: "LOGIN_NOEXITOSO",
-                payload: "el usuario no existe"}) 
+                payload: "El usuario no existe o el password es incorrecto"}) 
             }
         } catch(error)  { 
-            console.log('entré al catch');           
             dispatch({
                 type: "LOGIN_NOEXITOSO",
                 payload: "El usuario no existe o el password es incorrecto"}) 
         }        
     }
-
+    
 // --------------- LOGOUT DEL USUARIO ---------------
     const logout = () => {
         dispatch({
@@ -98,11 +95,15 @@ const UserState = (props) => {
                 dispatch({
                     type: "REGISTRO_EXITOSO",
                     payload: res.data})
-            } 
+            } else {
+                dispatch({
+                    type: "REGISTRO_NOEXITOSO",
+                    payload: "La cuenta de correo ya existe"})
+            }
         } catch(error)  {
             dispatch({
                 type: "REGISTRO_NOEXITOSO",
-                payload: error.request.status})
+                payload: "La cuenta de correo ya existe"})
         }
     }
     
@@ -110,9 +111,8 @@ const UserState = (props) => {
         <UserContext.Provider
             value={{
                 users: globalState.users,
-                mensaje: globalState.mensaje,
                 authStatus: globalState.authStatus,
-                loading: globalState.loading,
+                mensaje: globalState.mensaje,                
                 getUser,
                 confirmUser,
                 createUser,

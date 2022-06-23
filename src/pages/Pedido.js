@@ -16,7 +16,7 @@ export default function Pedido(){
     const ProdCtx = useContext(ProductContext)
     const { products, getProducts } = ProdCtx
     const CarCtx = useContext(CarContext)
-    const { guardaCarrito} = CarCtx
+    const { guardaCarrito, carrito} = CarCtx
 
     useEffect(() => {
         getProducts(id)
@@ -28,16 +28,17 @@ export default function Pedido(){
 
     function sendDataToCarrito(){       
         if(captura.talla === ''){
-            setCaptura({talla: ""})
             return alert(`Debe capturar la talla`)
         }
-        if(captura.cantidad <= 0 || captura.cantidad === '' || captura.cantidad >= 99){
-            setCaptura({cantidad: "1"})
+        if(captura.cantidad === '' || captura.cantidad <= 0 || captura.cantidad >= 99){
             return alert(`Debe capturar una cantidad válida entre 1 y 99`)
         }
         const precioEditado = moneda(products[0].precio)
         const importeEditado = moneda(captura.cantidad * products[0].precio)
-        const dato = {id: products[0]._id, nombre: products[0].nombre, talla: captura.talla, color: products[0].color, cantidad: captura.cantidad, precio: precioEditado, importe: importeEditado}
+        console.log('carrito: ', carrito);
+        const posicion = carrito.length
+        console.log('posicion: ', posicion);
+        const dato = {id: products[0]._id, pos: posicion, nombre: products[0].nombre, talla: captura.talla, color: products[0].color, cantidad: captura.cantidad, precio: precioEditado, importe: importeEditado}
         guardaCarrito(dato)
         getProducts(id)
         alert(`Se agregó al carrito:  ${captura.cantidad} - ${products[0].nombre} / Color: ${products[0].color} / Talla: ${captura.talla}`)

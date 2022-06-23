@@ -18,10 +18,13 @@ export default function Carrito() {
   let unidadesTotal = 0
   let importeTotal = 0
   
-  const DeleteCompra = async (el) => {   
+  const DeleteCompra = async (el) => {
+    console.log('el.pos: ', el.pos);
     const opcion = window.confirm(`¿Deseas borrar al producto seleccionado?`)
     if(opcion){
-      const nuevoCarrito = await carrito.filter((item) => item.id !== el.id)
+      console.log('carrito; ', carrito);
+      const nuevoCarrito = await carrito.filter((item) => item.pos !== el.pos)
+      console.log('nuevo carrito:', nuevoCarrito);
       actualizaCarrito(nuevoCarrito)
       unidadesTotal = 0
       importeTotal = 0
@@ -71,11 +74,11 @@ export default function Carrito() {
           </tbody>
         </table> 
       </div>
-      <div className='pagar'>
-        <div>
-          {importeTotal === 0 ? <p className='total'>No se han agregado artículos al carrito</p> : <p className='total'>El total del pedido es: Unidades = { unidadesTotal } - Importe = { moneda(importeTotal) }</p>}
-        </div>
-        <div>
+      <div className='final'>
+        <div className='pagar'>
+            {importeTotal === 0 ? <p className='total'>No se han agregado artículos al carrito</p> : <p className='total'>Total del pedido: &nbsp;&nbsp; Artículos: &nbsp;{ unidadesTotal } &nbsp;&nbsp;&nbsp; Importe:&nbsp; { moneda(importeTotal) }</p>}
+          </div>    
+        <div className='paypal'>
           { importeTotal > 0 && authStatus ? <PaypalButton total={importeTotal} /> : <Link to='/login' className="botonIniSesion">Para pagar inicia sesión</Link>}
         </div>
       </div>

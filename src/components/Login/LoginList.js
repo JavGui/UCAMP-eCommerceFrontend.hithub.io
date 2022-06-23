@@ -7,6 +7,7 @@ import '../../AppLog.css'
 export default function LoginList(){
   const[datos, setDatos] = useState({ capturaEmail: "", capturaPassword: "" })
   const [textoMensaje, setTextoMensaje] = useState("")
+  const [textoMensajeAnt, setTextoMensajeAnt] = useState("")
   const navigate = useNavigate()
 
   const ctx = useContext(UserContext)
@@ -22,13 +23,20 @@ export default function LoginList(){
     setTextoMensaje(" ")
   }
 
-  const sendDataToLoginUser = () => {
+  const sendDataToLoginUser = async () => {
     if(!datos.capturaEmail.trim() || !datos.capturaPassword.trim() ){
       return setTextoMensaje("Debes capturar los dos campos")
     }
-    loginUser(datos)
+    await loginUser(datos)
+    if (mensaje === textoMensajeAnt){
+      setTextoMensaje(mensaje)
+    }
+  }
+
+  useEffect (() => {
     setTextoMensaje(mensaje)
-  } 
+    setTextoMensajeAnt(mensaje)
+  }, [mensaje])
 
   useEffect(() =>{
     if (authStatus) {
@@ -67,7 +75,9 @@ export default function LoginList(){
             </div>
           </div>
         </div>
-        { mensaje ? <div className="mensaje"><p className="texto2">{mensaje}</p></div> : <div className="mensaje"><p className="texto2">{ textoMensaje } </p></div>}        
+         <div className="mensaje">
+            <p className="texto2">{ textoMensaje }</p>
+         </div>       
       </div>  
   )
 }

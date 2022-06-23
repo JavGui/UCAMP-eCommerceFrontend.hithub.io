@@ -9,7 +9,7 @@ const CarState = (props) => {
     
     const guardaCarrito = (dato) => {        
         try {
-            const res = { id: dato.id, nombre: dato.nombre, cantidad: dato.cantidad, talla: dato.talla, color: dato.color, precio: dato.precio, importe: dato.importe }
+            const res = { id: dato.id, pos: dato.pos, nombre: dato.nombre, cantidad: dato.cantidad, talla: dato.talla, color: dato.color, precio: dato.precio, importe: dato.importe }
             dispatch({
                 type: "GUARDA_CARRITO",
                 payload: res})

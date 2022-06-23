@@ -7,8 +7,15 @@ import Logo from '../imagenes/Logo Huud pantone 10267 C.png'
 import '../App.css'
 
 export default function Header () {
-const userCtx = useContext(UserContext)
-const { authStatus } = userCtx
+    const userCtx = useContext(UserContext)
+    const { authStatus } = userCtx
+    const CarCtx = useContext(UserContext)
+    const { carrito } = CarCtx
+
+    if (authStatus ) {
+        console.log('carrito: ', carrito)
+    } 
+        
 
     return(
         <header className="encabezado">
@@ -25,13 +32,10 @@ const { authStatus } = userCtx
                     { authStatus ? <a href="/" className='linea' >Cerrar Sesión</a> : <Link to='/login' className='linea' >Iniciar Sesión</Link>}
                 </nav>
                 <nav>
-                    <Link to='/registro' className='linea' >Crear Cuenta</Link>
+                { authStatus ? <Link to='/profile' className='linea' >Perfil Usuario</Link> : <Link to='/registro' className='linea' >Crear Cuenta</Link>}
                 </nav>
                 <nav>
                     <Link to='/carrito' className='linea' >Carrito</Link>
-                </nav>
-                <nav>
-                { authStatus ? <Link to='/profile' className='linea' >Perfil Usuario</Link> : null}
                 </nav>
             </div>
       </header> 
