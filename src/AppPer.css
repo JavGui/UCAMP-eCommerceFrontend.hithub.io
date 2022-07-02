@@ -48,8 +48,13 @@ h1{
   margin-left: 18px;
 }
 
-.password{
-  margin-top: 20px;
+.compras{
+  margin-top: 10px;
+  text-align: center;
+}
+
+.etiqueta{
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -63,23 +68,16 @@ h1{
   font-weight: bold;
 }
 
-.botones{
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  margin-top: 50px;
-  height: 60px;
+.clave{
+  margin-top: 0px;
+}
+.botonera{
+  text-align: center;
+  margin-top: 30PX;
 }
 
 .botonRegresaInicio{
-  background-color: rgb(59, 130, 246);
-  width: 200px;
-  height: 25px;
-  text-align: center;
-  color: white;
-  font-weight: bold;
-  font-size: x-large;
-  padding: 10px 20px;
-  border-radius: 8%;
-  text-decoration: none;
+  width: 120px;
+  padding: 3px 20px;
+  font-size: 17px;
 }

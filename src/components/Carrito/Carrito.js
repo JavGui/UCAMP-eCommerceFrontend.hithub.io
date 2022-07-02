@@ -40,15 +40,15 @@ export default function Carrito() {
         <table className="table">
           <thead className="table-header">
             <tr>
-              <th className="col col1">#</th>
-              <th className="col col2">Nombre</th>
-              <th className="col col3">Talla</th>
-              <th className="col col4">Color</th>
-              <th className="col col6">Cant</th>
-              <th className="col col5">Precio</th>
-              <th className="col col7">Importe</th>
-              <th className="col col9">Borra</th>
-              <th hidden className="col col6" >Id</th>
+              <th className="columna col1">#</th>
+              <th className="columna col2">Nombre</th>
+              <th className="columna col3">Talla</th>
+              <th className="columna col4">Color</th>
+              <th className="columna col6">Cant</th>
+              <th className="columna col5">Precio</th>
+              <th className="columna col7">Importe</th>
+              <th className="columna col9">Borra</th>
+              <th hidden className="columna col6" >Id</th>
             </tr>
           </thead>
           <tbody>
@@ -75,13 +75,12 @@ export default function Carrito() {
           </tbody>
         </table> 
       </div>
-      <div className='final'>
-        <div className='pagar'>
+      <div className='container final'>
+        <div className='row pagar'>
             {importeTotal === 0 ? <p className='total'>No se han agregado artículos al carrito</p> : <p className='total'>Total del pedido: &nbsp;&nbsp; Artículos: &nbsp;{ unidadesTotal } &nbsp;&nbsp;&nbsp; Importe:&nbsp; { moneda(importeTotal) }</p>}
           </div>    
         <div className='paypal'>
-          {/* { importeTotal > 0 && authStatus ? <PaypalButton total={importeTotal} /> : <Link to='/login' className="botonIniSesion">Para pagar inicia sesión</Link>} */}
-          { importeTotal > 0 && authStatus ? <PaypalButton total={importeTotal} /> : importeTotal > 0 && !authStatus ? <Link to={`/login/${ruta}`} className="botonIniSesion">Para pagar inicia sesión</Link> : null }
+          { importeTotal > 0 && authStatus ? <PaypalButton total={importeTotal} /> : importeTotal > 0 && !authStatus ? <Link to={`/login/${ruta}`} type='button' className="btn btn-primary botonIniSesion">Para pagar inicia sesión</Link> : null }
         </div>
       </div>
     </div>

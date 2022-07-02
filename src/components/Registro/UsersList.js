@@ -14,59 +14,57 @@ export default function UserList(){
       e.preventDefault()
       setDatos({ ...datos, [ e.target.name] : e.target.value})
       setTextoMensaje(" ")
-      }
+    }
     
-      function limpiaCampos(){
-        setDatos({ capturaNom: "", capturaEmail: "", capturaPassword: "" })
-        setTextoMensaje(" ")
-      }
+    function limpiaCampos(){
+      setDatos({ capturaNom: "", capturaEmail: "", capturaPassword: "" })
+      setTextoMensaje(" ")
+    }
 
-      const sendDataToCreateUser = async () => {
-        if(!datos.capturaNom.trim() || !datos.capturaEmail.trim() || !datos.capturaEmail.trim() ){
-          return setTextoMensaje("Debes capturar todos los campos")
-        }
-        await createUser(datos)
-        if (mensaje === textoMensajeAnt){
-          setTextoMensaje(mensaje)
-        }
+    const sendDataToCreateUser = async () => {
+      if(!datos.capturaNom.trim() || !datos.capturaEmail.trim() || !datos.capturaPassword.trim() ){
+        return setTextoMensaje("Debes capturar todos los campos")
       }
-
-      useEffect (() => {
+      await createUser(datos)
+      if (mensaje === textoMensajeAnt){
         setTextoMensaje(mensaje)
-        setTextoMensajeAnt(mensaje)
-      }, [mensaje])
+      }
+    }
+
+    useEffect (() => {
+      setTextoMensaje(mensaje)
+      setTextoMensajeAnt(mensaje)
+    }, [mensaje])
 
 
-    return(
-        <div className="Registro">
-          <div className="entradas">
-            <div className="entrada1">
-                <label>Usuario</label>
-                <input className="input1" name="capturaNom" type="text" value={datos.capturaNom} onChange={ (e) => handleChange(e) }/>
-            </div>
-            <div className="entrada2">
-                <label>Email</label>
-                <input className="input2" name="capturaEmail" type="text" value={datos.capturaEmail} onChange={ (e) => handleChange(e) }/>
-            </div>
-            <div className="entrada3">
-                <label>Password</label>
-                <input className="input3" name="capturaPassword" type="password" value={datos.capturaPassword} onChange={ (e) => handleChange(e) }/>
+  return(
+      <div className="Registro">
+        <div className="entradas">
+          <div className="entrada1">
+              <label>Usuario</label>
+              <input className="input1" name="capturaNom" type="text" value={datos.capturaNom} onChange={ (e) => handleChange(e) }/>
+          </div>
+          <div className="entrada2">
+              <label>Email</label>
+              <input className="input2" name="capturaEmail" type="text" value={datos.capturaEmail} onChange={ (e) => handleChange(e) }/>
+          </div>
+          <div className="entrada3">
+              <label>Password</label>
+              <input className="input3" name="capturaPassword" type="password" value={datos.capturaPassword} onChange={ (e) => handleChange(e) }/>
+          </div>
+        </div>
+  
+        <div className="container">  
+          <div className="row captura">
+            <div className='col-12'>
+              <button type="button" className="btn btn-success agrega" onClick={ ()=>sendDataToCreateUser() } >Agrega</button>
+              <button type="button" className="btn btn-secondary limpia" onClick={ ()=>limpiaCampos() } >LImpia</button>
             </div>
           </div>
-    
-          <div className="captura">  
-            <div className="botones">
-              <div>
-              <button className="agrega" type="button" onClick={ ()=>sendDataToCreateUser() } >Agrega</button>
-              </div>
-              <div>                
-                <button className="limpia" type="button" onClick={ ()=>limpiaCampos() } >LImpia</button>
-               </div>
-            </div>
-          </div>          
-          <div className="mensaje">
-             <p className="texto">{textoMensaje}</p>
-          </div>
-        </div>  
+        </div>          
+        <div className="mensaje">
+            <p className="texto">{textoMensaje}</p>
+        </div>
+      </div>  
     )
 }

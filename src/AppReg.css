@@ -15,11 +15,11 @@ h1{
   text-align: center;
 }
 .captura{
-  /* border: 2px solid red; */
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  margin-top: 30px;
 }
 
 input, label{
@@ -56,35 +56,24 @@ input, label{
   margin-bottom: 10px;
 }
 
-.botones{
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  margin-top: 20px;
-}
-
 .agrega{
-  background-color: rgba(0, 128, 0, 0.729);
-  margin-left: 20px;
   width: 90px;
-  color: white;
-  font-weight: bold;
-  font-size: larger;
-  padding: 5px 20px;
-  border-radius: 8%;
+  padding: 3px 20px;
+  font-size: 17px;
+}
+.agrega:hover{
+  background-color: rgba(0, 128, 0, 0.499);
 }
 
 .limpia{
-  background-color: gray;
   margin-left: 20px;
   width: 90px;
-  color: white;
-  font-weight: bold;
-  font-size: larger;
-  padding: 5px 20px;
-  border-radius: 8%;
+  padding: 3px 20px;
+  font-size: 17px;
 } 
-
+.limpia:hover{
+  background-color: rgba(128, 128, 128, 0.526);
+}
 .texto{
   border: 2px solid gray;
   margin: auto;

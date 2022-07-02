@@ -8,6 +8,7 @@ export default function ProductList() {
     const { products, getInit } = ctx
 
     useEffect(() => {
+        console.log('Entre a useeffect get inicio');
         getInit()
     },[])
 

@@ -10,7 +10,7 @@ export default function LoginList(){
   const [textoMensajeAnt, setTextoMensajeAnt] = useState("")
 
   const ctx = useContext(UserContext)
-  const { users, loginUser, verifyingToken, authStatus, mensaje } = ctx
+  const { users, loginUser, authStatus, mensaje } = ctx
 
   const handleChange = (e) => {
     setDatos({ ...datos, [ e.target.name] : e.target.value})
@@ -38,45 +38,39 @@ export default function LoginList(){
   }, [mensaje])
 
   useEffect(() =>{
-    if (authStatus) {
-      verifyingToken(users)     
-    }
     if (authStatus){
-      setTextoMensaje(`Hola  ${users[0].nombre}, disfruta tu experiencia de compra`)
+      console.log(users)
+      setTextoMensaje(`Hola  ${users[0].nombre},  disfruta de tu experiencia de compra`)
     }
-  },[authStatus])
+  },[authStatus, users])
 
 
   return(
-      <div className="Login">
-        <form className="entradas">
-          <div className="entrada1">
-              <label>Correo</label>
-              <input className="input1" name="capturaEmail" type="email" value={datos.capturaEmail} onChange={ (e) => handleChange(e) }/>
-          </div>
-          <div className="entrada2">
-              <label>Password</label>
-              <input className="input2" name="capturaPassword" type="password" value={datos.capturaPassword} onChange={ (e) => handleChange(e) }/>
-          </div>
-        </form>
-  
-        <div className="captura">  
-          <div className="botones">
-            <div>
-              <button className="inicia" type="button" onClick={ ()=>sendDataToLoginUser() } >Iniciar</button>
-            </div>
-            <div>                
-              <button className="limpiar" type="button" onClick={ ()=>limpiaCampos() } >LImpia</button>
-            </div>
-            <div>
-              { authStatus && ruta.ruta === "carrito" ? <Link to='/carrito'  className="botonRegresaPago">Regresa al carrito</Link> : <Link to='/' className="botonRegresaPago">Regresa a Inicio</Link>}
-            </div>
+    <div className="Login">
+      <form className="entradas">
+        <div className="entrada1">
+            <label>Correo</label>
+            <input className="input1" name="capturaEmail" type="email" value={datos.capturaEmail} onChange={ (e) => handleChange(e) }/>
+        </div>
+        <div className="entrada2">
+            <label>Password</label>
+            <input className="input2" name="capturaPassword" type="password" value={datos.capturaPassword} onChange={ (e) => handleChange(e) }/>
+        </div>
+      </form>
+
+      <div className="container">  
+        <div className="row captura">
+          <div className='colum col-12'>
+            <button type="button" className="btn btn-lg btn-success inicia" onClick={ ()=>sendDataToLoginUser() } >Iniciar</button>
+            <button type="button" className="btn btn-lg btn-secondary limpiar" onClick={ ()=>limpiaCampos() } >Limpia</button>
+            { authStatus && ruta.ruta === "carrito" ? <Link to='/carrito'  className="btn btn-primary botonRegresaPago">Regresa al carrito</Link> : <Link to='/' className="btn btn-primary botonRegresaPago">Regresa a Inicio</Link>}
           </div>
         </div>
-         <div className="mensaje">
-            <p className="texto2">{ textoMensaje }</p>
-         </div>       
-      </div>  
+      </div>
+        <div className="mensaje">
+          <p className="texto2">{ textoMensaje }</p>
+        </div>       
+    </div>  
   )
 }
 

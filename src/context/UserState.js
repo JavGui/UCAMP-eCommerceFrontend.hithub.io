@@ -4,7 +4,7 @@ import UserReducer from './UserReducer'
 import clienteAxios from '../config/axios'
 
 const UserState = (props) => {
-    const initialState = { user: {esername: null, email: null}, authStatus: false, status: null }
+    const initialState = { user: {esername: null, email: null}, authStatus: false, status: null, mensaje: null }
 
     const [globalState, dispatch] = useReducer(UserReducer, initialState)
     
@@ -52,7 +52,7 @@ const UserState = (props) => {
                 payload: respuesta.data.usaurio,
             })
         } catch (error) {
-            // console.log(error);
+            console.log(error);
         }
     }    
     

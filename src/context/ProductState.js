@@ -9,6 +9,7 @@ const ProductState = (props) => {
     const [globalState, dispatch] = useReducer(ProductReducer, initialState)
     
     const getInit = async () => {
+        console.log('Entré a recuperar inicio');
         const data = { inicio: "1"}
         try {
             const res = await clienteAxios.post('/inicio-productos', data)
@@ -16,11 +17,13 @@ const ProductState = (props) => {
                 type: "OBTENER_PRODUCTOS",
                 payload: res.data.products })
         } catch(error)  {
-            console.log(error)
+            console.log('Salí por el catch');
+            // console.log(error)
         }    
     }
 
     const getProducts = async (id) => {
+        console.log('Entré a obtener productos');
         const data = { id: id }
         try {
             const res = await clienteAxios.post('/obtener-productos', data)

@@ -14,12 +14,6 @@ h1{
   margin-top: 100px;
   text-align: center;
 }
-.captura{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 input, label{
   font-size: larger;
@@ -55,61 +49,39 @@ input, label{
   color: #1B5194;
 }
 
-.botones{
+.colum{
   display: flex;
-  width: 500px;
-  flex-direction: row;
-  align-items: center;
+  justify-content: center;
 }
 
 .inicia{
-  background-color: rgba(0, 128, 0, 0.751);
-  margin-left: 20px;
   width: 90px;
-  color: white;
-  font-weight: bold;
-  font-size: larger;
-  border-radius: 8%;
-  padding: 5px 20px;
+  padding: 3px 20px;
+  font-size: 17px;
 }
 .inicia:hover{
-  background-color: rgba(0, 128, 0, 0.502);
-  border: 2px solid rgba(0, 128, 0, 0.697);
-  transform: scale(1.05);
+  background-color: rgba(0, 128, 0, 0.499);
 }
 
 .limpiar{
-  background-color: gray;
+  margin-left: 20px;
   width: 90px;
-  color: white;
-  font-weight: bold;
-  font-size: larger;
-  border-radius: 8%;
-  padding: 5px 20px;
-  margin-left: 25px;
+  padding: 3px 20px;
+  font-size: 17px;
 }
 .limpiar:hover{
-  background-color: rgba(128, 128, 128, 0.496);
-  border: 2px solid gray;
-  transform: scale(1.05);
+  background-color: rgba(128, 128, 128, 0.526);
 }
 
 .botonRegresaPago{
-  border: 2px solid darkblue;
-  background-color: rgb(59, 130, 246);
-  text-decoration: none;
-  text-align: center;
-  font-size: larger;
-  color: white; 
-  border-radius: 8%;
-  padding: 6px 10px;
-  margin-left: 25px;
+  margin-left: 30px;
+  width: 118px;
+  padding: 3px 20px; 
+  font-size: 17px;
 }
 
 .botonRegresaPago:hover{
-  background-color: rgba(59, 131, 246, 0.426);
-  border: 2px solid blue;
-  transform: scale(1.05);  
+  background-color: rgba(30, 143, 255, 0.659);
 }
 
 .texto2{

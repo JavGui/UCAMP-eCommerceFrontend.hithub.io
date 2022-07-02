@@ -74,9 +74,11 @@ export default function Pedido(){
                             <input className='CapNum' name="cantidad" type="number" value={ captura.cantidad} onChange={ handleChange } ></input>
                         </div>                        
                     </div>
-                    <div className='botonesPed'>              
-                        <button className="meteCarrito" type="button" onClick={ ()=>sendDataToCarrito() } >Agrega al carrito</button>
-                        <Link to='/catalogo' className='regresaCat' >Regresar</Link>                          
+                    <div className='container botonesPed'>
+                        <div className='row'>
+                            <button type="button" className="btn btn-primary meteCarrito" onClick={ ()=>sendDataToCarrito() } >Agrega al carrito</button>
+                            <Link to='/catalogo' type='button' className='btn btn-secondary regresaCat' >Regresar</Link>                          
+                        </div>
                     </div>
                 </div>
             </div>            

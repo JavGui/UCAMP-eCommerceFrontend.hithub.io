@@ -21,13 +21,17 @@ export default function Profile() {
               <label>Email</label>
               <p className="correo">{users[0].email}</p>
           </div>
-          <div className="password">
-              <label>Última compra</label>
-              <p className="clave">26/marzo/2022</p>
+          <div className="compras">
+              <label className='etiqueta'>Última compra</label>
+              <p className="clave">22/junio/2022</p>
           </div>
         </div>
-        <div className="botones">
-            <Link to='/' className="botonRegresaInicio">Regresa a Inicio</Link>
+        <div className='container'>
+          <div className="row botonera">
+            <div className='col-12'>
+              <Link to='/' type='button' className="btn btn-primary botonRegresaInicio">Regresa a Inicio</Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>  
