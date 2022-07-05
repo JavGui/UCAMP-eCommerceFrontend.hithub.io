@@ -289,13 +289,23 @@ footer{
   font-weight: bold;
   text-align: center;
 }
-.descripcionPedido{
+.descripcion{
   font-family: sans-serif;
   color: #8c9fad;
   font-weight: bold;
   font-size: 18px;
   text-align: justify;
   text-align: center;
+}
+.descripcion2{
+  /* border: 1px solid red; */
+  font-family: sans-serif;
+  color: #8c9fad;
+  text-align: left;
+  font-size: 16px;
+  text-align: justify;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .colorPrecio{
   display: flex;

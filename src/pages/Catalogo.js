@@ -7,7 +7,6 @@ import '../AppCat.css'
 export default function Catalogo() {
     const ctx = useContext(ProductContext)
     const { products, getProducts } = ctx
-    const id = ""
     useEffect(() => {
         getProducts()
     },[])

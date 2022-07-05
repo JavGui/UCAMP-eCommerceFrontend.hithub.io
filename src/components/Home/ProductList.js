@@ -24,10 +24,10 @@ export default function ProductList() {
                             <div><p className="textoTarjeta2">{ elem.nombre }</p></div>
                             <div><p className="descripcion">{ elem.descripcion}</p></div>
                             <div className="colorPrecio">
-                                <div><p className="descripcion">Color: { elem.color }</p></div>
-                                <div><p className="descripcion">Precio: $ { elem.precio }.00</p></div> 
+                                <div><p className="descripcion2">Color: { elem.color }</p></div>
+                                <div><p className="descripcion2">Precio: $ { elem.precio }.00</p></div> 
                             </div>
-                            <div><p className="descripcion">{ elem.tallas }</p></div>
+                            <div><p className="descripcion2">{ elem.tallas }</p></div>
                         </div>
                     </article>                                       
                 )                   
